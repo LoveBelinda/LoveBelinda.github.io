@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Maize & Belinda's Love Story</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+	<script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+<div id="mainDiv">
+	<div id="audio_btn">
+		<audio src="Distance.mp3" id="media" loop autoplay></audio>
+	</div>
+	<div id="content">
+		<div id="code">
+			<div id="tag" style="color: #666; width: 200px; position: absolute; left: 1270px; top: 675px; font-family: Consolas; font-size: 12px; font-weight: bold;"
+				<tag>click for bgm -----></tag>
+			</div>
+			<span class="comments">##</span><br/>
+			<span class="comments"># We are lovebirds in a long-distance relationship,</span><br/>
+			<span class="comments"># so I write code to mark our Valentine's Day in this special way.</span><br/>
+			<span class="comments">##</span><br/>
+			i = Boy(<span class="string">"Mai Xu"</span>);<br/>
+			u = Girl(<span class="string">"Yanran Lin"</span>);<br/>
+			<span class="comments"># Here our story begins:</span><br/>
+			<span class="comments"># Dec 6, 2020, I met you through JI Winter Ball. </span><br/>
+			meet(u, i)<br/>
+			<span class="comments"># Dec 11, God granted me the courage to ask you out for dinner. </span><br/>
+			dine.first(u, i)<br/>
+			<span class="comments"># Dec 17, We fooled around and bumped into a bustling Xmas Market.</span><br/>
+			date.first(u,i)<br/>
+			<span class="comments"># Days later, I confessed to you during movie "Love Actually".</span><br/>
+			i.confess(u)<br/>
+			<span class="comments"># Dec 26, 2020, You became my girlfriend.</span><br/>
+			u.accept(i)<br/>
+			<span class="comments"># Since then, we’ve led lives of happiness every day.</span><br/>
+			happy(u, i)<br/>
+			<span class="comments"># We enjoy studying together.</span><br/>
+			study(u, i)<br/>
+			<span class="comments"># We enjoy cuisine together.</span><br/>
+			dine(u, i)<br/>
+			<span class="comments"># At days when we're apart, we enjoy latenight voicecall. </span><br/>
+			phonecall(u, i) = <span class="keyword">80h55min31s</span><br/>
+			<span class="comments"># Sometimes we carefully plan and imagine our future.</span><br/>
+			plan(u, i, future)<br/>
+			<span class="comments"># Waiting as time testify to our undying love, </span><br/>
+			<span class="comments"># we will be the happiest couple in the world. </span><br/>
+			time.test(u, i, in_the_future=<span class="keyword">True</span>)<br/>
+			i.live_happily_forever_with(u)<br/>
+			<span class="comments"># You are the greatest love of my life.</span><br/>
+			while <span class="keyword">True</span>:<br/>
+			<span class="placeholder"></span><span class="keyword">if</span> u.with(i):<br/>
+			<span class="placeholder"></span><span class="placeholder"></span>u = everything<br/>
+			<span class="placeholder"></span><span class="keyword">else</span>:<br/>
+			<span class="placeholder"></span><span class="placeholder"></span>everything = u<br/>
+			<span class="comments"># As our story goes on, this website will continue recording</span><br/> 
+			<span class="comments"># every important details of our time together.</span><br/>
+			<span class="comments"># I love you forever.</span><br/>
+		</div>
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<div id="words">
+				<div id="messages">
+					LYR, I have fallen in love with you for
+					<div id="elapseClock"></div>
+				</div>
+				<div id="loveu">
+					Love u forever and ever.<br/>
+					<div class="signature">- Mai Xu | Maize</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+var x = document.getElementById("media"); 
+$(function(){
+    $("#audio_btn").click(function(){
+		$(this).toggleClass("rotate"); //控制音乐图标 自转或暂停
+		        
+        //控制背景音乐 播放或暂停            
+        if($(this).hasClass("rotate")){
+             x.play();
+         }else{
+             x.pause();
+         }
+     })
+});
+</script>	
+
+<script type="text/javascript">
+	var offsetX = $("#loveHeart").width() / 2;
+	var offsetY = $("#loveHeart").height() / 2 - 55;
+	var together = new Date();
+	// 此处月份介于 0 ~ 11 之间。用本地时间表示，如 8 月要用 7 表示。
+	together.setFullYear(2020, 11, 6);
+	together.setHours(0);
+	together.setMinutes(4);
+	together.setSeconds(0);
+	together.setMilliseconds(0);
+
+	if (!document.createElement('canvas').getContext) {
+		var msg = document.createElement("div");
+		msg.id = "errorMsg";
+		msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+		document.body.appendChild(msg);
+		$("#code").css("display", "none")
+		$("#copyright").css("position", "absolute");
+		$("#copyright").css("bottom", "10px");
+		document.execCommand("stop");
+	} else {
+		setTimeout(function () {
+			startHeartAnimation();
+		}, 5000);
+
+		timeElapse(together);
+		setInterval(function () {
+			timeElapse(together);
+		}, 500);
+
+		adjustCodePosition();
+		$("#code").typewriter();
+	}
+</script>	
+</body>
+</html>
