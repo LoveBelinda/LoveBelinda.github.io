@@ -112,6 +112,7 @@ body {
     float: right;
 	background-image: url(cover.png);
     background-size: contain;
+    display: none;
 }
 	
 .rotate {
