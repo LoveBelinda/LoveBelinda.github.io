@@ -2,7 +2,6 @@ var $window = $(window), gardenCtx, gardenCanvas, $garden, garden;
 var clientWidth = $(window).width();
 var clientHeight = $(window).height();
 $(function () {
-	$("#audio_btn").fadeIn(1000);
 	$loveHeart = $("#loveHeart");
 	var a = $loveHeart.width() / 2;
 	var b = $loveHeart.height() / 2 - 55;
